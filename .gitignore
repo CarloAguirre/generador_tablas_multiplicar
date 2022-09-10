@@ -1,0 +1,7 @@
+# Esta carpeta contiene los elementos que github ignorara
+
+salida/*.txt 
+
+#ignoramos los modulos ya que su info se aloja en package-lock.json
+node_modules/  
+#en caso de perder los modulos, o instalar la app en otro equipo basta con ejecutar 'npm install'

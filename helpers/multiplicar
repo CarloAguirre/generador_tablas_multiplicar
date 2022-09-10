@@ -1,0 +1,35 @@
+const fs = require('fs');
+const colors = require('colors')
+
+const crearArchivo = async(base=5, listar = false, hasta = 10) =>{
+
+    try {
+        let salida = '';
+        
+        for(let i=1; i<=hasta; i++){
+            
+            salida += `${base} x ${i} = ${base*i}\n`;
+        }
+
+        if(listar){                                         // solo si se envia 'listar' imprimira la tabla en consola
+            
+            console.log('=========================='.green)
+            console.log(`       tabla del ${base}`.blue)
+            console.log('=========================='.green)
+            console.log(salida.green)                     // .rainbow imprimira la salida en colores
+        }
+        
+        fs.writeFileSync(`./salida/tabla-del${base}.txt`, salida)  
+        
+        return `tabla del ${base} creada!`.blue;
+
+    }catch (error) {
+        
+        throw(error)            
+    }
+}
+    
+    
+module.exports = {
+    crearArchivo
+}
